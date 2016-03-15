@@ -7,7 +7,8 @@ class App:
         print '* Press 1 to simulate                                   *'
         print '* Press 2 to see results                                *'
         print '* Press \'q\' to exit                                   *'
-        print '*********************************************************'
+        print '*********************************************************'
+
         while True:
             self.check(inp = raw_input())
     def check(self,inp):

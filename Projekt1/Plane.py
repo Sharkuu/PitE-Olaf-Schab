@@ -4,6 +4,8 @@ class Plane:
     height = 0.0
     slope = 0.0
     start = 0.0
+    startFly = 0.0
+    startLand = 0.0
     max_velocity = 900.0
     started = False
     def __init__(self):
