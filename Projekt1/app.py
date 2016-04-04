@@ -1,23 +1,28 @@
-import simulate
-import Plane
-import sys
-class App:
-    def __init__(self):
-        print '****************Flight recorder simulator****************'
-        print '* Press 1 to simulate                                   *'
-        print '* Press 2 to see results                                *'
-        print '* Press \'q\' to exit                                   *'
-        print '*********************************************************'
+from ReadCSV import ReadCSV
+from Buffer import Buffer
+from DataLoader import DataLoader
+from Fixer import Fixer
+from Plots import Plots
+import os
 
-        while True:
-            self.check(inp = raw_input())
-    def check(self,inp):
-        if inp == 'q':
-            sys.exit()
-        if inp == str(1):
-            simulate.Simulate.fly(plane = Plane.Plane())
-        
-            
-App()
-            
+if os.path.exists('data.txt'):
+    os.remove('data.txt')
+upload_data = []
+data = []
+line = 1
+rfile = ReadCSV.read('test.csv')
+for row in rfile:
+			if(line == 1):
+				line = line+1
+				continue
+			upload_data.append(row)
 
+Fixer.fixTimeAndAlt(upload_data)
+buff = Buffer()
+for i in upload_data:
+	buff.sendToBuffer(i)
+	buff.sendData()
+
+data = (DataLoader.read('data.txt'))
+plots = Plots()
+plots.altitude_time(data)
