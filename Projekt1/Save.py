@@ -1,7 +1,6 @@
-
-
 class Save:
-	
+	'''Klasa odpowiedzialna za zapis otrzymanych danych do pliku o nazwie 'data.txt'
+	'''
 	@staticmethod
 	def save(data):
 		sfile = open ('data.txt', 'a')

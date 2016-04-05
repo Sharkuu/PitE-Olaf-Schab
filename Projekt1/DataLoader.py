@@ -1,4 +1,5 @@
 class DataLoader:	
+	'''Klasa wczytujaca dane zapisane wczesniej za pomoca Savera'''
 	@staticmethod
 	def read(name):
 		data = []       

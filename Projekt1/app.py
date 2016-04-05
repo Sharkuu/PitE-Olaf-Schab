@@ -25,4 +25,8 @@ for i in upload_data:
 
 data = (DataLoader.read('data.txt'))
 plots = Plots()
-plots.altitude_time(data)
+plots.altitude(data)
+plots.pitch(data)
+plots.distance(data)
+plots.speed(data)
+plots.roll(data)
