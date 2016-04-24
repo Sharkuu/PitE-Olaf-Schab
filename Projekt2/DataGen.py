@@ -11,26 +11,26 @@ class DataGen:
         	self.dl_fali = 100
         	self.il_pomiarow = 50000
         	self.amplituda = 2
-        	self.zaklucenia = 0.69
+        	self.zaklocenia = 0.69
 		self.pomiar_okres = int(self.il_pomiarow / self.dl_fali)
 
 
 	#def getData(self):
-		#return [self.okresy, self.przesuniecie, self.dl_fali, self.il_pomiarow, self.amplituda,self.zaklucenia]
+		#return [self.okresy, self.przesuniecie, self.dl_fali, self.il_pomiarow, self.amplituda,self.zaklocenia]
  
 	def getAmp(self):
 		return self.amplituda
 	def getOffset(self):
 		return self.przesuniecie
 	def getNoise(self):
-		return self.zaklucenia
+		return self.zaklocenia
 	def setData(self,okr,przes,dl_f,il_pom,am,zak):
 		self.okresy = okr
         	self.przesuniecie = przes
         	self.dl_fali = dl_f
         	self.il_pomiarow = il_pom
         	self.amplituda = am
-        	self.zaklucenia = zak
+        	self.zaklocenia = zak
 		self.pomiar_okres = int(self.il_pomiarow / self.dl_fali)
 
 	'''
@@ -38,7 +38,7 @@ class DataGen:
 	return: blad generowany pseudolosowo z podanego wczesniej zakresu
 	'''
 	def zakl(self):
-        	return random.uniform(float(-self.zaklucenia),float(self.zaklucenia))
+        	return random.uniform(float(-self.zaklocenia),float(self.zaklocenia))
 
 	'''
 	FUnkcja generujaca dane

@@ -13,25 +13,28 @@ d = DataGen()
 print '****************************Funkcja sinus*****************************'
 
 while True:
-	
-	if (raw_input("Aby uruchomic program z danymi domyslnymi nacisnij 1\nJesli chcesz wprowadzic wlasne dane nacisnij ENTER \n")) != str(1):
+	std = raw_input('Aby uruchomic program z danymi domyslnymi nacisnij 1\nJesli chcesz wprowadzic wlasne dane nacisnij ENTER \n')
+	if ( std == ''):
 		try:
 			okr = int(raw_input("Wprowadz ilosc okresow funkcji sin(PELNE OKRESY) \n"))
-                        pom_okr = float(raw_input("Wprowadz ilosc przeprowadzonych pomiarow \n"))
+    			pom_okr = float(raw_input("Wprowadz ilosc przeprowadzonych pomiarow \n"))
     			dl_f = float(raw_input("Wprowadz dlugosc fali \n"))
-    			zak = float(raw_input("Wprowadz wartosc zaklucen\n"))
+			if (pom_okr<dl_f):
+				raise ValueError 
+    			zak = float(raw_input("Wprowadz wartosc zaklocen\n"))
     			am = float(raw_input("Wprowadz amplitude\n"))
     			przes = float(raw_input("Wprowadz przesuniecie\n"))
 			d.setData(okr,przes,dl_f,pom_okr,am,zak)
 			break
 		except ValueError:
 			print 'Wprowadzono niepoprawne dane - sprobuj jeszcze raz \n'
-	else:
+	elif(std== str(1)):
 			break
+	
 
 
 if (d.getNoise()>=2.5):
-	print 'Uwaga! Wybrano wartosc zaklucen: '+ str(d.getNoise())	+'. Moze to spowodowac bledy rozwiazania'
+	print 'Uwaga! Wybrano wartosc zaklocen: '+ str(d.getNoise())	+'. Moze to spowodowac bledy rozwiazania'
 #storage  = d.getData()
 data = d.generateData(math.sin)
 f = Fitter()
