@@ -16,15 +16,14 @@ while True:
 	std = raw_input('Aby uruchomic program z danymi domyslnymi nacisnij 1\nJesli chcesz wprowadzic wlasne dane nacisnij ENTER \n')
 	if ( std == ''):
 		try:
-			okr = int(raw_input("Wprowadz ilosc okresow funkcji sin(PELNE OKRESY) \n"))
     			pom_okr = float(raw_input("Wprowadz ilosc przeprowadzonych pomiarow \n"))
-    			dl_f = float(raw_input("Wprowadz dlugosc fali \n"))
-			if (pom_okr<dl_f):
+    			okr = int(raw_input("Wprowadz ilosc okresow funkcji sin(PELNE OKRESY) \n"))
+			if (pom_okr<okr):
 				raise ValueError 
     			zak = float(raw_input("Wprowadz wartosc zaklocen\n"))
     			am = float(raw_input("Wprowadz amplitude\n"))
     			przes = float(raw_input("Wprowadz przesuniecie\n"))
-			d.setData(okr,przes,dl_f,pom_okr,am,zak)
+			d.setData(przes,okr,pom_okr,am,zak)
 			break
 		except ValueError:
 			print 'Wprowadzono niepoprawne dane - sprobuj jeszcze raz \n'
